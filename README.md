@@ -3,7 +3,7 @@
 <img alt="spotify logo" src="assets/rythminsights.png" width="350">
 </p>
 <p align="center">
-<img alt="Licence" src=https://img.shields.io/github/license/romisadeh/rhythminsights>
+<img alt="Licence" src=[https://img.shields.io](https://shields.io/badges)/github/license/romisadeh/rhythminsights>
  <img alt="Issues" src=https://img.shields.io/github/issues/romisadeh/rhythminsights>
  <img alt="last commit" src=https://img.shields.io/github/last-commit/romisadeh/rhythminsights>
 
