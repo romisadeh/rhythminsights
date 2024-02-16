@@ -21,8 +21,8 @@
 - seaborn
 
 ## Quick start:
-To run code user must first get spotify client Id, client secret, username and redirect URI.
-Enter [Spotify For Developers](https://developer.spotify.com/) and create app. 
+To run code user must first get spotify client Id, client secret, username and redirect URI. <br>
+Enter [Spotify For Developers](https://developer.spotify.com/) and create app. <br>
 After creation you will be able to enter app dashboard. In setting you will get all the information needed to run file.
 
 
