@@ -14,7 +14,7 @@
  **Features:**
 
 - Uses API to extract data from user's spotify account.
-- Extract user's top tracks and artist based on long term listening habits.
+- Extract user's top tracks and artist based on selected time range listening habits.
 - Exports an HTML file with statistics about user's tracks and albums.
 - Extract user's top album image cover.
 - Updates accourding to your listening and spotify habit changes.
@@ -29,6 +29,12 @@
 To run code user must first get spotify client Id, client secret, username and redirect URI. <br>
 Enter [Spotify For Developers](https://developer.spotify.com/) and create app. <br>
 After creation you will be able to enter app dashboard. In setting you will get all the information needed to run file.
+Put the information into a text file name "info" in the correct order : <br>
+1. client ID <br>
+2. client secret <br>
+3. username <br>
+4. redirect URI <br>
+5. time range - select the time range you want the data to be extracted (long_term, medium_term, short_term)
 
 
 
