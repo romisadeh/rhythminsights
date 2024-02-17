@@ -6,10 +6,10 @@ from collections import Counter
 import seaborn as sns
 
 
-def get_sp(cid,cs,username,redirect_uri):
+def get_sp(cid,cs,username,redirect_uri,time):
     #from spotify for developers app:
     oauth_scopes = 'user-read-recently-played playlist-read-private user-top-read'
-    t_range = "long_term"
+    t_range = time
     cid = cid
     cs = cs
     username = username

@@ -1,12 +1,17 @@
 import create_html
 import spotify_API
 
-cid=input("Enter your spotify client_Id: ")
-cs=input("Enter your Client_secret: ")
-username=input("Enter username: ")
-redirect_uri=input("Enter redirect uri")
 
-sp,t_range=spotify_API.get_sp(cid,cs,username,redirect_uri)
+info_file=open('info.txt','r')
+cid=info_file.readline().rstrip()
+cs=info_file.readline().rstrip()
+username=info_file.readline().rstrip()
+redirect_uri=info_file.readline().rstrip()
+t_range=info_file.readline().rstrip()
+info_file.close()
+
+
+sp=spotify_API.get_sp(cid,cs,username,redirect_uri,t_range)
 df_top_tracks=spotify_API.get_top_tracks(sp,t_range)
 df_top_artist,top=spotify_API.get_top_artist(sp,t_range)
 
@@ -30,4 +35,5 @@ similar=spotify_API.compare_similar(sp,t_range)
 top_related=top_tracks(5,similar)
 pi_chart=spotify_API.top_genres_grapsh(df_top_artist)
 create_html.html(top_10_tracks,top_10_artists,top_related,album,img_url)
+
 
