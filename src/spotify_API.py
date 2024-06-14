@@ -21,7 +21,7 @@ def get_sp(cid,cs,username,redirect_uri,time):
                                     redirect_uri=redirect_uri,
                                     scope=oauth_scopes)
     sp = spotipy.Spotify(auth_manager=auth_manager)
-    return sp,t_range
+    return sp
 def get_top_tracks (sp,t_range):
 
     user_top_tracks = sp.current_user_top_tracks(limit=20,time_range=t_range,offset=1)
@@ -49,27 +49,29 @@ def get_top_artist(sp,t_range):
     return df_top_artist,top_id
 
 
-def top_genres_grapsh (df):
-    genres=[]
+def top_genres_grapsh(df):
+    genres = []
     music_genres = ["Blues", "Classical", "Country", "Electronic", "Folk", "Hip Hop", "Indie", "Jazz", "Metal", "Pop",
                     "R&B", "Rock", "Reggae", "Soul", "Funk", "Gospel", "Punk", "World", "Alternative", "EDM", "Rap",
-                    "Techno", "Dubstep",  "Trance", "Latin", "Disco",
+                    "Techno", "Dubstep", "Trance", "Latin", "Disco",
                     "Instrumental", "Acoustic", "Korean-Pop", "Salsa"]
     for genre in df['Genre']:
-       for i in music_genres:
-           if (i.lower() in genre[0].lower()):
-               genres.append(i)
+        if genre:  # Check if genre is not empty
+            for i in music_genres:
+                if (i.lower() in genre[0].lower()):
+                    genres.append(i)
     genre_counts = Counter(genres)
-    genre_label=list(genre_counts.keys())
-    counts=list(genre_counts.values())
+    genre_label = list(genre_counts.keys())
+    counts = list(genre_counts.values())
 
     plt.clf()
     plt.figure(facecolor='#F9F8F1')
-    plot=plt.pie(counts,labels=genre_label,autopct=lambda p: '{:.1f}%'.format(round(p,2)) if p > 0 else "",
-                 colors=sns.color_palette('Paired'))
+    plot = plt.pie(counts, labels=genre_label, autopct=lambda p: '{:.1f}%'.format(round(p, 2)) if p > 0 else "",
+                   colors=sns.color_palette('Paired'))
     plt.ylabel("")
     plt.savefig('pie_chart.png')
     return plot
+
 
 def top_albums(df_tracks):
     album_count=Counter(df_tracks['album'])
